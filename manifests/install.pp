@@ -7,7 +7,7 @@ class smokeping::install {
     if ! defined (Package['fping']) {
         package {'fping': ensure => installed; }
     }
-    if ! defined (Package['perl-doc']) {
+    if ! defined (Package['perl-doc']) and $::osfamily != 'RedHat' {
         package {'perl-doc': ensure => installed; }
     }
 
